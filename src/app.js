@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const fs = require('fs');
 
-const imgNames = fs.readdirSync(path.join(__dirname, '/images'));
+const imgNames = fs.readdirSync(path.join(__dirname, '/assets'));
 app.get('/*', (req, res) => {
 
 	if (Math.floor(Math.random() * 50) == 0) {
@@ -13,7 +13,7 @@ app.get('/*', (req, res) => {
 	}
 
 	const imgName = imgNames[Math.floor(Math.random() * imgNames.length)];
-	res.sendFile(path.join(__dirname, `/images/${imgName}`));
+	res.sendFile(path.join(__dirname, `/assets/${imgName}`));
 });
 
 module.exports = app;
